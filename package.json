@@ -1,0 +1,22 @@
+{
+  "name": "amechlcli",
+  "version": "1.0.1",
+  "description": "HL",
+  "main": "index.js",
+  "bin": {
+    "amechlcli": "bin/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "HL"
+  ],
+  "author": "nocodeempire",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^9.4.0",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^8.0.0"
+  }
+}
