@@ -5,6 +5,13 @@ const inquirer = require('inquirer');
 const cherryPick = require('../lib/cherry-pick');
 const downloadTemp = require('../lib/download-temp');
 
+program
+  .name('amechlcli')
+  .description('CLI to some JavaScript string utilities')
+  .version('1.0.0')
+  .showHelpAfterError();
+
+
 program.command('init <project>')
   .description('初始化项目<project>')
   .action(async (projectName, ...args) => {
@@ -21,7 +28,7 @@ program.command('init <project>')
 program.command('cherry-pick <branch>')
   .description('cherry-pick到<branch>分支')
   .alias('cp')
-  .action((str, options) => {
+  .action((str, ...args) => {
     cherryPick(str)
   });
 
