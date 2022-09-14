@@ -3,9 +3,10 @@
 const { program } = require('commander');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
-const cherryPick = require('../lib/cherry-pick');
 const downloadTemp = require('../lib/download-temp');
 const upgradeTemp = require('../lib/upgrade-temp');
+const cherryPick = require('../lib/cherry-pick');
+const commitCherryPick = require('../lib/commit-cherry-pick');
 
 program
   .name('amechlcli')
@@ -50,5 +51,11 @@ program.command('cherry-pick <branch>')
   .action((str, ...args) => {
     cherryPick(str)
   });
+
+program.command('commit-cherry-pick <type> <msg> <branch>')
+  .description('commit, 提交类型<type>, 提交语<msg>, 然后cherry-pick到<branch>分支')
+  .alias('ccp')
+  .action(commitCherryPick);
+
 
 program.parse();
