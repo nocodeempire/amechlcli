@@ -47,21 +47,21 @@ program.command('upgrade')
   })
 
 program.command('commit <type> <msg>')
-  .description('commit, 提交类型<type>, 提交语<msg>, 推送')
+  .description('commit, 提交类型<type>, 提交语<msg>, 并推送')
   .alias('c')
   .action((type, msg, ...args) => {
     commit(type, msg)
   });
 
 program.command('cherry-pick <branch>')
-  .description('cherry-pick到<branch>分支')
+  .description('cherry-pick到<branch>分支, 并推送')
   .alias('cp')
   .action((str, ...args) => {
     cherryPick(str)
   });
 
 program.command('commit-cherry-pick <type> <msg> <branch>')
-  .description('commit, 提交类型<type>, 提交语<msg>, 然后cherry-pick到<branch>分支')
+  .description('commit, 提交类型<type>, 提交语<msg>, 然后cherry-pick到<branch>分支, 并推送')
   .alias('ccp')
   .action(commitCherryPick);
 
