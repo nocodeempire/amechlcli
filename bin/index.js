@@ -5,6 +5,7 @@ const inquirer = require('inquirer');
 const chalk = require('chalk');
 const downloadTemp = require('../lib/download-temp');
 const upgradeTemp = require('../lib/upgrade-temp');
+const pull = require('../lib/pull');
 const commit = require('../lib/commit');
 const cherryPick = require('../lib/cherry-pick');
 const commitCherryPick = require('../lib/commit-cherry-pick');
@@ -45,6 +46,12 @@ program.command('upgrade')
       else console.log(chalk.cyanBright('暂不更新'));
     }
   })
+
+program.command('pull')
+  .description('pull, 拉取, 后接想拉取的各分支')
+  .alias('p')
+  .action(pull);
+
 
 program.command('commit <type> <msg>')
   .description('commit, 提交类型<type>, 提交语<msg>, 并推送')
